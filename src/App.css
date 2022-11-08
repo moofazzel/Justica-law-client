@@ -76,3 +76,19 @@
 .nav-tabs{
   border-width: 0px !important;
 }
+
+
+/* service-header */
+
+.service-header{
+  background: url(./assets/images//banner/subheader1.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.service-info{
+  transition: .7s;
+}
+
+.service-info:hover h5, .service-info:hover p,.service-info:hover span {
+  color: #fff;
+}

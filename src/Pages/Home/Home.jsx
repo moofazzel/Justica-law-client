@@ -74,8 +74,16 @@ const Home = () => {
       </div>
 
       {/* Main services  */}
-      <div className="w-4/5 mx-auto -mt-32">
+      <div className="w-4/5 mx-auto -mt-32 mb-20">
         <SingleServices />
+        <div className=" my-10 text-center">
+        <Link
+              href="#"
+              class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-gray-800 rounded-[3px] hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-[#eaa636] uppercase no-underline"
+            >
+              Read more
+            </Link>
+        </div>
       </div>
 
       {/* service End */}
