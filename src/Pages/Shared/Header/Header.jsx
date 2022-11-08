@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .then((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <div className="flex justify-center bg-slate-800 text-white">
-       <div className="navbar w-5/6">
-        <div className="navbar-start">
+      <div className="navbar w-5/6">
+        <div className="">
           <div className="dropdown">
             <button tabIndex={0}>
               <svg
@@ -28,65 +40,80 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <Link>Item 1</Link>
-              </li>
               <li tabIndex={0}>
-                <Link className="justify-between">
-                  Parent
-                  <svg
-                    className="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                  </svg>
-                </Link>
+                <Link className="no-underline">Home</Link>
               </li>
               <li>
-                <Link>Item 3</Link>
+                <Link className="no-underline">Blogs</Link>
+              </li>
+              <li>
+                <Link className="no-underline" to={"login"}>
+                  Login
+                </Link>
               </li>
             </ul>
           </div>
-          <Link to={'/'}>
+          <Link to={"/"}>
             <img src={logo} className="w-full" alt="" />
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">
-            
-            <li tabIndex={0}>
-              <Link>
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
+        <div>
+          <div className="navbar-center hidden lg:flex">
+            <ul className="menu menu-horizontal p-0">
+              <li tabIndex={0}>
+                <Link className="no-underline">Home</Link>
+              </li>
+              <li>
+                <Link className="no-underline">Blogs</Link>
+              </li>
+              {user ? undefined : (
+                <li>
+                  <Link className="no-underline" to={"login"}>
+                    Login
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
+
+          {user && (
+            <div>
+              <ul className="menu menu-horizontal p-0">
+                <li className="hidden md:block">
+                  <Link className="no-underline">My reviews</Link>
+                </li>
+                <li className="hidden md:block">
+                  <Link className="no-underline">Add service</Link>
+                </li>
+              </ul>
+
+              <div className="dropdown dropdown-bottom dropdown-end">
+                <img
+                  style={{ borderRadius: "50%" }}
+                  className="w-1h-14 h-14 btn m-1"
+                  tabIndex={0}
+                  src={user?.photoURL}
+                  alt=""
+                />
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </Link>
-            </li>
-            <li>
-              <Link>Blogs</Link>
-            </li>
-            <li>
-              <Link to={'login'}>Login</Link>
-            </li>
-            <li>
-              <Link>My reviews</Link>
-            </li>
-            <li>
-              <Link>Add service</Link>
-            </li>
-            <li>
-              <Link>Logout</Link>
-            </li>
-          </ul>
+                  <li className="block md:hidden">
+                    <Link className="no-underline">My reviews</Link>
+                  </li>
+                  <li className="block md:hidden">
+                    <Link className="no-underline">Add service</Link>
+                  </li>
+                  <li>
+                    <Link onClick={handleLogout} className="no-underline">
+                      Logout
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

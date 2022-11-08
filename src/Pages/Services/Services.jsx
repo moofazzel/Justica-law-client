@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SingleServices from "../../Pages/Services/SingleServices";
+
 
 const Services = () => {
   return (
@@ -11,7 +13,7 @@ const Services = () => {
       </div>
 
       <div className="my-16 w-5/6 mx-auto">
-        
+        <SingleServices/>
       </div>
     </div>
   );
