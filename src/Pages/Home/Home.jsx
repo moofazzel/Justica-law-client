@@ -39,7 +39,6 @@ const Home = () => {
           <Link
             className="text-xs font-bold text-white no-underline bg-[#111] tracking-widest uppercase py-3 px-8"
             href="#"
-            class="btn-custom btn-black light"
           >
             Make Appointment
           </Link>
@@ -76,7 +75,7 @@ const Home = () => {
 
       {/* Main services  */}
       <div className="w-4/5 mx-auto -mt-32">
-        <SingleServices/>
+        <SingleServices />
       </div>
 
       {/* service End */}

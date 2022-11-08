@@ -50,15 +50,13 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <Link>
+          <Link to={'/'}>
             <img src={logo} className="w-full" alt="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
-            <li>
-              <Link>Item 1</Link>
-            </li>
+            
             <li tabIndex={0}>
               <Link>
                 Parent
@@ -74,7 +72,19 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link>Item 3</Link>
+              <Link>Blogs</Link>
+            </li>
+            <li>
+              <Link to={'login'}>Login</Link>
+            </li>
+            <li>
+              <Link>My reviews</Link>
+            </li>
+            <li>
+              <Link>Add service</Link>
+            </li>
+            <li>
+              <Link>Logout</Link>
             </li>
           </ul>
         </div>
