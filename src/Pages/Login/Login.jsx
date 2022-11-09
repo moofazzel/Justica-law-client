@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import google from "../../assets/icons/google.svg";
 import logo from "../../assets/images/logo.png";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
   const { googleSignIn, loginWithEmailPassword } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLoginWithEmailPassword = (e) => {
     e.preventDefault();
@@ -17,8 +21,8 @@ const Login = () => {
     loginWithEmailPassword(email, password)
       .then((result) => {
         const user = result.user;
-        from.reset()
-        console.log(user);
+        navigate(from, { replace: true });
+        from.reset();
       })
       .then((err) => {
         console.error(err);
@@ -29,7 +33,9 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        if (user) {
+          navigate(from, { replace: true });
+        }
       })
       .then((err) => {
         console.error(err);
