@@ -19,7 +19,14 @@ const Services = () => {
         <span className="block w-56 my-2 mx-auto border-[#ffb43a] border-b-4"></span>
         <p>Reputation. Respect. Result.</p>
       </div>
-
+      <div className=" my-12 text-center">
+        <Link
+          to={"/add_services"}
+          className="inline-flex items-center py-[10px] px-5 text-sm font-medium text-center text-white bg-[#eaa636] rounded-[3px] hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-[#eaa636] uppercase no-underline transition-all"
+        >
+          Add service
+        </Link>
+      </div>
       <div className="my-16 w-5/6 mx-auto ">
         <div className="flex flex-wrap gap-4 justify-center">
           {service.map((ser) => (
@@ -28,15 +35,17 @@ const Services = () => {
               className="md:w-[48%] lg:w-[30%] bg-[#f5f5f5] rounded-[3px] border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 "
             >
               <div className="no-underline relative" href="#">
-                <PhotoProvider>
-                  <PhotoView src={ser?.image}>
-                    <img
-                      src={ser?.image}
-                      style={{ objectFit: "cover" }}
-                      alt=""
-                    />
-                  </PhotoView>
-                </PhotoProvider>
+                <div className="flex justify-center">
+                  <PhotoProvider>
+                    <PhotoView src={ser?.image}>
+                      <img
+                        src={ser?.image}
+                        style={{ objectFit: "cover" }}
+                        alt=""
+                      />
+                    </PhotoView>
+                  </PhotoProvider>
+                </div>
                 <span className="absolute top-3 left-2 bg-[#eaa636] text-white font-bold px-2 py-1 rounded-[3px]  ">
                   {ser?.price}
                 </span>
@@ -67,7 +76,6 @@ const Services = () => {
           ))}
         </div>
       </div>
-
 
       {/* Add services  */}
     </div>

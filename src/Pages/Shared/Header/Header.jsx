@@ -6,7 +6,6 @@ import { AuthContext } from "../../../context/AuthProvider";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
-
   const handleLogout = () => {
     logOut()
       .then(() => {})
@@ -41,10 +40,19 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li tabIndex={0}>
-                <Link to={'/'} className="no-underline">Home</Link>
+                <Link to={"/"} className="no-underline">
+                  Home
+                </Link>
+              </li>
+              <li tabIndex={0}>
+                <Link to={"services"} className="no-underline">
+                  Services
+                </Link>
               </li>
               <li>
-                <Link to={'blog'} className="no-underline">Blogs</Link>
+                <Link to={"blog"} className="no-underline">
+                  Blogs
+                </Link>
               </li>
               <li>
                 <Link className="no-underline" to={"login"}>
@@ -53,7 +61,7 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <Link  to={"/"}>
+          <Link to={"/"}>
             <img src={logo} className="w-[70%] sm:w-full" alt="" />
           </Link>
         </div>
@@ -61,10 +69,19 @@ const Header = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
               <li tabIndex={0}>
-                <Link to={'/'} className="no-underline">Home</Link>
+                <Link to={"/"} className="no-underline">
+                  Home
+                </Link>
+              </li>
+              <li tabIndex={0}>
+                <Link to={"services"} className="no-underline">
+                  Services
+                </Link>
               </li>
               <li>
-                <Link to={'blog'} className="no-underline">Blogs</Link>
+                <Link to={"blog"} className="no-underline">
+                  Blogs
+                </Link>
               </li>
               {user ? undefined : (
                 <li>
@@ -80,21 +97,35 @@ const Header = () => {
             <div>
               <ul className="menu menu-horizontal p-0">
                 <li className="hidden md:block">
-                  <Link to={'reviews'} className="no-underline">My reviews</Link>
+                  <Link to={"reviews"} className="no-underline">
+                    My reviews
+                  </Link>
                 </li>
                 <li className="hidden md:block">
-                  <Link to={'add_services'} className="no-underline">Add service</Link>
+                  <Link to={"add_services"} className="no-underline">
+                    Add service
+                  </Link>
                 </li>
               </ul>
 
               <div className="dropdown dropdown-bottom dropdown-end">
-                <img
-                  style={{ borderRadius: "50%" }}
-                  className="w-1h-14 h-14 btn m-1"
-                  tabIndex={0}
-                  src={user?.photoURL}
-                  alt=""
-                />
+                {user.photoURL ? (
+                  <img
+                    style={{ borderRadius: "50%" }}
+                    className="w-1h-14 h-14 btn m-1"
+                    tabIndex={0}
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    style={{ borderRadius: "50%" }}
+                    className="w-1h-14 h-14 btn m-1"
+                    tabIndex={0}
+                    src="https://www.seekpng.com/png/detail/966-9665317_placeholder-image-person-jpg.png"
+                    alt=""
+                  />
+                )}
                 <ul
                   tabIndex={0}
                   className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
@@ -103,7 +134,9 @@ const Header = () => {
                     <Link className="no-underline">My reviews</Link>
                   </li>
                   <li className="block md:hidden">
-                    <Link to={'add_services'} className="no-underline">Add service</Link>
+                    <Link to={"add_services"} className="no-underline">
+                      Add service
+                    </Link>
                   </li>
                   <li>
                     <Link onClick={handleLogout} className="no-underline">

@@ -9,7 +9,7 @@ import Carousel from "react-bootstrap/Carousel";
 import SingleServices from "../Services/SingleServices";
 
 const Home = () => {
-  const allData = useLoaderData()
+  const allData = useLoaderData();
 
   return (
     <div>
@@ -77,17 +77,19 @@ const Home = () => {
 
       {/* Main services  */}
       <div className="w-4/5 mx-auto -mt-32 mb-12 flex gap-4 flex-wrap justify-center">
-        {allData.map(ser => <SingleServices key={ser._id} ser={ser}/>)}
+        {allData.map((ser) => (
+          <SingleServices key={ser._id} ser={ser} />
+        ))}
       </div>
 
       <div className=" mb-12 text-center">
-          <Link
-            to={"services"}
-            className="inline-flex items-center py-[10px] px-5 text-sm font-medium text-center text-white bg-[#eaa636] rounded-[3px] hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-[#eaa636] uppercase no-underline transition-all"
-          >
-            Find More
-          </Link>
-        </div>
+        <Link
+          to={"services"}
+          className="inline-flex items-center py-[10px] px-5 text-sm font-medium text-center text-white bg-[#eaa636] rounded-[3px] hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-[#eaa636] uppercase no-underline transition-all"
+        >
+          Find More
+        </Link>
+      </div>
 
       {/* service End */}
 
