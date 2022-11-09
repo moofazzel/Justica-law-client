@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ServiceDetails = () => {
+  const { _id, description, image, price, serviceName } = useLoaderData()
+
+
   return (
     <div>
       <div className="service-header text-white text-center h-[250px] flex flex-col justify-center items-center">
@@ -9,29 +12,22 @@ const ServiceDetails = () => {
         <span className="block w-56 my-2 mx-auto border-[#ffb43a] border-b-4"></span>
         <p>Reputation. Respect. Result.</p>
       </div>
-      <div className="w-5/6 mx-auto my-16 flex ">
-        <div>
+      <div className="w-5/6 mx-auto my-16 ">
+        <div className="flex gap-10">
           <img
-            className="mb-8 w-3/6 rounded-[3px] "
-            src="https://www.madebydesignesia.com/themes/justica/images/news/5.jpg"
+            className="mb-8 w-3/6 h-auto rounded-[3px] "
+            src={image}
             alt=""
           />
-          <h2 className="border-l-4 border-[#ffb43a]  pl-4 py-2">
-            Your attitude will go a long way in determining your success, your
-            recognition, your reputation and your enjoyment in being a lawyer.
-          </h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+          <div>
+            <h2 className="border-l-4 border-[#ffb43a]  pl-4 py-2">
+              {serviceName}
+            </h2>
+            <p>
+              {description}
+            </p>
+          </div>
         </div>
-
-        <div></div>
       </div>
 
       {/* Review  */}

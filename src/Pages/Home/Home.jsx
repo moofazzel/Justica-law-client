@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import image1 from "../../assets/images/homeCarousel/image1.jpg";
 import image2 from "../../assets/images/homeCarousel/image2.jpg";
 import exp from "../../assets/images/exp.jpg";
@@ -9,6 +9,8 @@ import Carousel from "react-bootstrap/Carousel";
 import SingleServices from "../Services/SingleServices";
 
 const Home = () => {
+  const allData = useLoaderData()
+
   return (
     <div>
       {/* Carasoul start  */}
@@ -74,9 +76,11 @@ const Home = () => {
       </div>
 
       {/* Main services  */}
-      <div className="w-4/5 mx-auto -mt-32 mb-20">
-        <SingleServices />
-        <div className=" my-10 text-center">
+      <div className="w-4/5 mx-auto -mt-32 mb-20 flex gap-4 flex-wrap justify-center">
+        {allData.map(ser => <SingleServices key={ser._id} ser={ser}/>)}
+      </div>
+
+      <div className=" my-10 text-center">
           <Link
             to={"services"}
             className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-gray-800 rounded-[3px] hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-[#eaa636] uppercase no-underline"
@@ -84,7 +88,6 @@ const Home = () => {
             Find More
           </Link>
         </div>
-      </div>
 
       {/* service End */}
 
