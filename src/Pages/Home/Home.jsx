@@ -32,8 +32,8 @@ const Home = () => {
       {/* Carasoul end  */}
 
       <div className="bg-yellow-400 text-white py-9">
-        <div className="w-5/6 mx-auto flex justify-between items-center ">
-          <h3 className="text-2xl font-semibold">
+        <div className="w-5/6 mx-auto lg:flex text-center justify-between items-center ">
+          <h3 className="text-2xl font-semibold mb-6 lg:mb-0">
             Now! Get a Free Consultation for Your Case.
           </h3>
           <Link

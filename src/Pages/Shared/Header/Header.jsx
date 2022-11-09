@@ -41,10 +41,10 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li tabIndex={0}>
-                <Link className="no-underline">Home</Link>
+                <Link to={'/'} className="no-underline">Home</Link>
               </li>
               <li>
-                <Link className="no-underline">Blogs</Link>
+                <Link to={'blog'} className="no-underline">Blogs</Link>
               </li>
               <li>
                 <Link className="no-underline" to={"login"}>
@@ -61,10 +61,10 @@ const Header = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
               <li tabIndex={0}>
-                <Link className="no-underline">Home</Link>
+                <Link to={'/'} className="no-underline">Home</Link>
               </li>
               <li>
-                <Link className="no-underline">Blogs</Link>
+                <Link to={'blog'} className="no-underline">Blogs</Link>
               </li>
               {user ? undefined : (
                 <li>
@@ -80,10 +80,10 @@ const Header = () => {
             <div>
               <ul className="menu menu-horizontal p-0">
                 <li className="hidden md:block">
-                  <Link className="no-underline">My reviews</Link>
+                  <Link to={'reviews'} className="no-underline">My reviews</Link>
                 </li>
                 <li className="hidden md:block">
-                  <Link className="no-underline">Add service</Link>
+                  <Link to={'service'} className="no-underline">Add service</Link>
                 </li>
               </ul>
 
