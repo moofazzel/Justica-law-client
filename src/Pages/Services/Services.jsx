@@ -67,6 +67,9 @@ const Services = () => {
           ))}
         </div>
       </div>
+
+
+      {/* Add services  */}
     </div>
   );
 };

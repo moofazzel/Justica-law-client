@@ -4,6 +4,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import AddService from "../../Pages/Services/AddService";
 import ServiceDetails from "../../Pages/Services/ServiceDetails";
 import Services from "../../Pages/Services/Services";
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: "services",
         loader: () => fetch("http://localhost:5000/data"),
         element: <Services />,
+      },
+      {
+        path: "add_services",
+        element: <AddService />,
       },
       {
         path: "services/:id",

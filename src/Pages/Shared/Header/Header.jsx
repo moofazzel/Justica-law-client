@@ -83,7 +83,7 @@ const Header = () => {
                   <Link to={'reviews'} className="no-underline">My reviews</Link>
                 </li>
                 <li className="hidden md:block">
-                  <Link to={'service'} className="no-underline">Add service</Link>
+                  <Link to={'add_services'} className="no-underline">Add service</Link>
                 </li>
               </ul>
 
@@ -103,7 +103,7 @@ const Header = () => {
                     <Link className="no-underline">My reviews</Link>
                   </li>
                   <li className="block md:hidden">
-                    <Link className="no-underline">Add service</Link>
+                    <Link to={'add_services'} className="no-underline">Add service</Link>
                   </li>
                   <li>
                     <Link onClick={handleLogout} className="no-underline">
