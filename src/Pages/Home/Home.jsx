@@ -50,18 +50,18 @@ const Home = () => {
       {/* service */}
 
       <div className="bg-[#111111] py-20 pb-36">
-        <div className=" w-5/6 mx-auto md:flex gap-36">
-          <div className=" ">
-            <span className="text-yellow-400 uppercase text-xs font-bold">
+        <div className=" w-5/6 mx-auto md:flex md:gap-10 lg:gap-36 ">
+          <div className="">
+            <span className="text-yellow-400 uppercase text-xl md:text-xs font-bold">
               Welcome
             </span>
             <br />
             <h2 className="text-white text-4xl font-semibold">
               Reputation. <br /> Respect. Result.
             </h2>
-            <hr className="w-2/4 my-5 border-yellow-400" />
+            <hr className="w-2/4 my-4 md:my-5 border-yellow-400 border-2" />
           </div>
-          <div className=" text-white w-[55%] ">
+          <div className=" text-white md:w-[55%] ">
             <p>
               Consequat occaecat ullamco amet non eiusmod nostrud dolore irure
               incididunt est duis anim sunt officia. Fugiat velit proident
@@ -76,14 +76,14 @@ const Home = () => {
       </div>
 
       {/* Main services  */}
-      <div className="w-4/5 mx-auto -mt-32 mb-20 flex gap-4 flex-wrap justify-center">
+      <div className="w-4/5 mx-auto -mt-32 mb-12 flex gap-4 flex-wrap justify-center">
         {allData.map(ser => <SingleServices key={ser._id} ser={ser}/>)}
       </div>
 
-      <div className=" my-10 text-center">
+      <div className=" mb-12 text-center">
           <Link
             to={"services"}
-            className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-gray-800 rounded-[3px] hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-[#eaa636] uppercase no-underline"
+            className="inline-flex items-center py-[10px] px-5 text-sm font-medium text-center text-white bg-[#eaa636] rounded-[3px] hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-[#eaa636] uppercase no-underline transition-all"
           >
             Find More
           </Link>
@@ -93,8 +93,8 @@ const Home = () => {
 
       {/* Experience  */}
       <div className="flex items-center bg-[#111] ">
-        <div className="bg-exp lg:w-[50%] h-[450px]">
-          {/* <img className="maxh w-full" src={exp} alt="" /> */}
+        <div className="bg-exp hidden lg:block lg:w-[50%] h-[450px]">
+          {/* bg image  */}
         </div>
         <div className="p-16 lg:w-[50%] ">
           <span className="text-yellow-400 uppercase text-xs font-bold">

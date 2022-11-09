@@ -23,7 +23,7 @@ const Header = () => {
             <button tabIndex={0}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 lg:hidden"
+                className="h-w-8 w-8 lg:hidden mr-3"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -53,8 +53,8 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <Link to={"/"}>
-            <img src={logo} className="w-full" alt="" />
+          <Link  to={"/"}>
+            <img src={logo} className="w-[70%] sm:w-full" alt="" />
           </Link>
         </div>
         <div>

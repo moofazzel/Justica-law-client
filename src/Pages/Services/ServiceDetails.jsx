@@ -15,7 +15,7 @@ const ServiceDetails = () => {
       <div className="w-5/6 mx-auto my-16 ">
         <div className="flex gap-10">
           <img
-            className="mb-8 w-3/6 h-auto rounded-[3px] "
+            className="mb-8 h-96 rounded-[3px] "
             src={image}
             alt=""
           />

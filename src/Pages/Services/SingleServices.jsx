@@ -8,7 +8,7 @@ const SingleServices = ({ ser }) => {
 
   return (
     <>
-      <div className="w-[30%] bg-[#f5f5f5] rounded-[3px] border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ">
+      <div className="md:w-[48%] lg:w-[30%] bg-[#f5f5f5] rounded-[3px] border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ">
         <div className="no-underline relative" href="#">
           <PhotoProvider>
             <PhotoView src={image}>
