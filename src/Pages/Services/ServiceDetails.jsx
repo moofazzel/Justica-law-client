@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
+
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 const ServiceDetails = () => {
-  const { _id, description, image, price, serviceName } = useLoaderData()
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const { _id, description, image, price, serviceName } = useLoaderData();
+
+  const { user } = useContext(AuthContext);
+
+  const handleReviewBtn = () => {};
 
   return (
     <div>
@@ -14,18 +26,12 @@ const ServiceDetails = () => {
       </div>
       <div className="w-5/6 mx-auto my-16 ">
         <div className="flex gap-10">
-          <img
-            className="mb-8 h-96 rounded-[3px] "
-            src={image}
-            alt=""
-          />
+          <img className="mb-8 h-96 rounded-[3px] " src={image} alt="" />
           <div>
             <h2 className="border-l-4 border-[#ffb43a]  pl-4 py-2">
               {serviceName}
             </h2>
-            <p>
-              {description}
-            </p>
+            <p>{description}</p>
           </div>
         </div>
       </div>
@@ -48,109 +54,119 @@ const ServiceDetails = () => {
 
         <div className="text-center my-4">
           <h1 class="text-4xl font-bold py-2">Clients Reviews</h1>
-          <p class="text-2xl font-semibold">What Our Clients Say About Us</p>
-          <button className="rounded-sm text-xs font-bold text-white no-underline bg-[#111] tracking-widest uppercase py-3 px-8">
+          <p class="text-2xl font-semibold pb-3">What Our Clients Say About Us</p>
+          <Link
+            to={'/login'}
+            onClick={handleReviewBtn}
+            className="rounded-sm text-xs font-bold text-white no-underline bg-[#111] tracking-widest uppercase py-3 px-8"
+          >
             Write a Review
-          </button>
-          <div className="my-5">
-            <form>
-              <div class="mb-4 w-full bg-gray-50 rounded-lg border border-yellow-400">
-                <div className="mb-4">
-                  <img
-                    style={{ borderRadius: "50%" }}
-                    className="w-1h-14 h-14 btn m-1 block"
-                    tabIndex={0}
-                    src="https://lh3.googleusercontent.com/a/ALm5wu1uRfhVSfxKtytYXMoTUvZ4_juMPo3iDt88M_ssSMg=s96-c"
-                    alt=""
-                  />
-                  <span className="block text-xl font-semibold">Name: </span>
-                  <span className="block text-xl font-semibold">Email: </span>
-                </div>
-                <div class="py-2 px-4 bg-white rounded-t-lg ">
-                  <textarea
-                    id="comment"
-                    rows="4"
-                    class="p-2 w-full text-sm text-black bg-white border-0  focus:ring-0 dark:text-white dark:placeholder-gray-400"
-                    placeholder="Write a comment..."
-                    required=""
-                  ></textarea>
-                </div>
-                <div class="flex justify-between items-center py-2 px-3 border-t">
-                  <button
-                    type="submit"
-                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-[#ffb43a] rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-[#ff9d00]"
-                  >
-                    Post comment
-                  </button>
-                  <div class="flex pl-0 space-x-1 sm:pl-2">
+          </Link>
+
+
+          {user && (
+            <div className="my-5 w-[60%] mx-auto">
+              {/* Checking user  */}
+
+              <form>
+                <div class="mb-4 w-full bg-gray-50 rounded-lg border border-yellow-400">
+                  <div className="mb-4">
+                    <img
+                      style={{ borderRadius: "50%" }}
+                      className="w-1h-14 h-14 btn m-1 block"
+                      tabIndex={0}
+                      src="https://lh3.googleusercontent.com/a/ALm5wu1uRfhVSfxKtytYXMoTUvZ4_juMPo3iDt88M_ssSMg=s96-c"
+                      alt=""
+                    />
+                    <span className="block text-2xl font-semibold">Name: {user.displayName }</span>
+                    <span className="block text-2xl font-semibold">Email: {user.email }</span>
+                  </div>
+                  <div class="py-2 px-4 bg-white rounded-t-lg ">
+                    <textarea
+                      id="comment"
+                      rows="4"
+                      class="p-2 w-full text-sm text-black bg-white border-0  focus:ring-0 dark:text-white dark:placeholder-gray-400"
+                      placeholder="Write your review..."
+                      required=""
+                    ></textarea>
+                  </div>
+                  <div class="flex justify-between items-center py-2 px-3 border-t">
                     <button
-                      type="button"
-                      class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+                      type="submit"
+                      class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-[#ffb43a] rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-[#ff9d00]"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      <span class="sr-only">Attach file</span>
+                      Send
                     </button>
-                    <button
-                      type="button"
-                      class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
+                    <div class="flex pl-0 space-x-1 sm:pl-2">
+                      <button
+                        type="button"
+                        class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
                       >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      <span class="sr-only">Set location</span>
-                    </button>
-                    <button
-                      type="button"
-                      class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
+                        <svg
+                          aria-hidden="true"
+                          class="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                        <span class="sr-only">Attach file</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
                       >
-                        <path
-                          fill-rule="evenodd"
-                          d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                      <span class="sr-only">Upload image</span>
-                    </button>
+                        <svg
+                          aria-hidden="true"
+                          class="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                        <span class="sr-only">Set location</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                        <span class="sr-only">Upload image</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </form>
-          </div>
+              </form>
+            </div>
+          )}
         </div>
 
         <div className="flex">
           <div class="w-1/2 p-4 text-left my-4">
             {/* <!-- component --> */}
-            <div class="min-h-screen flex items-center justify-center">
+            <div class="flex items-center justify-center">
               <div class="px-10">
                 <div class="bg-white max-w-xl rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500">
                   <div class="mt-4">
