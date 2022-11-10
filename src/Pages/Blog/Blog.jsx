@@ -10,50 +10,34 @@ const Blog = () => {
           <div className="space-y-4">
             <details className="w-full border rounded-lg" open="">
               <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">
-                What is cors?
+              DIFFERENCE BETWEEN SQL AND NOSQL?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">
-                Cross-origin resource sharing (CROS) is a mechanism that allows
-                restricted resources on a web page to be requested from another
-                domain outside the domain from which the first resource was
-                served. A web page may freely embed cross-origin images,
-                stylesheets, scripts, iframes, and videos.
+              SQL is the programming language used to interface with relational databases. (Relational databases model data as records in rows and tables with logical links between them). NoSQL is a class of DBMs that are non-relational and generally do not use SQL.
               </p>
             </details>
             <details className="w-full border rounded-lg" open="">
               <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">
-                Why are you using firebase? What other options do you have to
-                implement authentication?
+              WHAT IS JWT, AND HOW DOES IT WORK?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">
-                Firebase Authentication provides backend services, easy-to-use
-                SDKs, and ready-made UI libraries to authenticate users to your
-                app. It supports authentication using passwords, phone numbers,
-                popular federated identity providers like Google, Facebook and
-                Twitter, and more. The best Firebase alternatives are: Auth0,
-                MongoDB. MongoDB,Passport, Okta, JSON Web Token, Keycloak,
-                Amazon Cognito.
+              JSON Web Token (JWT) is an open standard (RFC 7519) for securely transmitting information between parties as JSON object. It is compact, readable and digitally signed using a private key/ or a public key pair by the Identity Provider(IdP)
               </p>
             </details>
             <details className="w-full border rounded-lg" open="">
               <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">
-                How does the private route work?
+              WHAT IS THE DIFFERENCE BETWEEN JAVASCRIPT AND NODE JS?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">
-                How does the private route work? The private route component is
-                similar to the public route, the only change is that redirect
-                URL and authenticate condition. If the user is not authenticated
-                he will be redirected to the login page and the user can only
-                access the authenticated routes If he is authenticated (Logged
-                in).
+              JavaScript is a simple programming language that can be used with any browser that has the JavaScript Engine installed. Node. js, on the other hand, is an interpreter or execution environment for the JavaScript programming language
               </p>
             </details>
             <details className="w-full border rounded-lg" open="">
               <summary className="px-4 py-6 focus:outline-none focus-visible:ring-violet-400">
-              What is Node? How does Node work?
+              HOW DOES NODE HANDLE MULTIPLE REQUESTS AT THE SAME TIME?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">
-              It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node. js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive.
+              NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them.
               </p>
             </details>
           </div>
