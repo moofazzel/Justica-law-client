@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDdL9t6hytSQOvEeV2Zz3mAo-qdDn5HPhY",
-  authDomain: "justica-law-client.firebaseapp.com",
-  projectId: "justica-law-client",
-  storageBucket: "justica-law-client.appspot.com",
-  messagingSenderId: "38247161243",
-  appId: "1:38247161243:web:ebfe500fb1677b9d08553e",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
