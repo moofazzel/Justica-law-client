@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/UseTitle";
 
 const Services = () => {
+
+  useTitle("Services")
+
+
   const [service, setService] = useState([]);
 
   useEffect(() => {

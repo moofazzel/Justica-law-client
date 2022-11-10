@@ -1,8 +1,14 @@
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/UseTitle";
 
 const AddService = () => {
+
+  useTitle("AddService")
+
+
+
   const handleAddService = (e) => {
     e.preventDefault();
     const from = e.target;

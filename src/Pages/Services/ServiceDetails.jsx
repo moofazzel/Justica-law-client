@@ -4,8 +4,12 @@ import { AuthContext } from "../../context/AuthProvider";
 
 import toast, { Toaster } from "react-hot-toast";
 import Review from "../../components/Review";
+import useTitle from "../../hooks/UseTitle";
 
 const ServiceDetails = () => {
+
+  useTitle("ServiceDetails")
+
   const { _id, description, image, price, serviceName } = useLoaderData();
 
   const { user } = useContext(AuthContext);

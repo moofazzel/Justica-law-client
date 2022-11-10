@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import right_arrow from "../../assets/icons/right_arrow.svg";
+import useTitle from "../../hooks/UseTitle";
 
 const UserReview = ({ rev }) => {
+
+  useTitle("User review")
+
+
+
   const { serviceName, service_id, review, serviceImage } = rev;
   return (
     <>

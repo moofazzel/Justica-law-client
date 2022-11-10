@@ -7,9 +7,12 @@ import Exp from "../../components/Exp";
 import Teams from "../../components/Teams";
 import Carousel from "react-bootstrap/Carousel";
 import SingleServices from "../Services/SingleServices";
+import useTitle from "../../hooks/UseTitle";
 
 const Home = () => {
   const allData = useLoaderData();
+
+  useTitle("Home")
 
   return (
     <div>

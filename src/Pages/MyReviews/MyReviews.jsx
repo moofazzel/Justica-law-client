@@ -1,19 +1,34 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
 import UserReview from "./UserReview";
 
 const MyReviews = () => {
+
+  useTitle("My review")
+
+
+
   const { user } = useContext(AuthContext);
 
-  const [reviews, setReview] = useState();
+    const [reviews, setReview] = useState();
+    
+    const [loading , setLoading] = useState(true)
 
   useEffect(() => {
     fetch(`https://justica-law-server.vercel.app/my_review?uid=${user?.uid}`)
       .then((res) => res.json())
-      .then((data) => setReview(data));
-  }, []);
+        .then((data) => {
+            setReview(data)
+            setLoading(false)
+      });
+  }, [user?.uid]);
 
-  console.log(reviews);
+    console.log(reviews);
+    
+    if (loading) {
+        return "Loading..."
+    }
 
   return (
     <div className="w-5/6 mx-auto  my-12">

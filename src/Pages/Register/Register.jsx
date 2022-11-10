@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import google from "../../assets/icons/google.svg";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
 
 const Register = () => {
+
+  useTitle("Register")
+
+
+
   const { handleRegister, UpdateNamePhotoURL } = useContext(AuthContext);
 
   const handleSubmit = (e) => {

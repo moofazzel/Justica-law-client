@@ -3,13 +3,17 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import google from "../../assets/icons/google.svg";
 import logo from "../../assets/images/logo.png";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/UseTitle";
+
 
 const Login = () => {
   const { googleSignIn, loginWithEmailPassword } = useContext(AuthContext);
-
+  
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  
+  useTitle("login")
 
   const handleLoginWithEmailPassword = (e) => {
     e.preventDefault();
