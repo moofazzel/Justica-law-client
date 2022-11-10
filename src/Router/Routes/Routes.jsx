@@ -3,6 +3,7 @@ import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
 import Register from "../../Pages/Register/Register";
 import AddService from "../../Pages/Services/AddService";
 import ServiceDetails from "../../Pages/Services/ServiceDetails";
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: () => fetch("http://localhost:5000/dataLimit"),
+        loader: () => fetch("https://justica-law-server.vercel.app/dataLimit"),
         element: <Home />,
       },
       {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "services",
-        loader: () => fetch("http://localhost:5000/data"),
+        loader: () => fetch("https://justica-law-server.vercel.app/data"),
         element: <Services />,
       },
       {
@@ -43,12 +44,16 @@ const router = createBrowserRouter([
       {
         path: "services/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/data/${params.id}`),
+          fetch(`https://justica-law-server.vercel.app/data/${params.id}`),
         element: <ServiceDetails />,
       },
       {
         path: "blog",
         element: <Blog />,
+      },
+      {
+        path: "my_review",
+        element: <MyReviews />,
       },
     ],
   },

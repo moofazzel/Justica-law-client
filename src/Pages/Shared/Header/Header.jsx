@@ -97,7 +97,7 @@ const Header = () => {
             <div>
               <ul className="menu menu-horizontal p-0">
                 <li className="hidden md:block">
-                  <Link to={"reviews"} className="no-underline">
+                  <Link to={'my_review'} className="no-underline">
                     My reviews
                   </Link>
                 </li>
@@ -131,7 +131,7 @@ const Header = () => {
                   className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li className="block md:hidden">
-                    <Link className="no-underline">My reviews</Link>
+                    <Link to={'my_review'} className="no-underline">My reviews</Link>
                   </li>
                   <li className="block md:hidden">
                     <Link to={"add_services"} className="no-underline">

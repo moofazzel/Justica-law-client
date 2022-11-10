@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import image1 from "../../assets/images/homeCarousel/image1.jpg";
 
 const SingleServices = ({ ser }) => {
   const { _id, description, image, price, serviceName } = ser;
@@ -27,7 +26,7 @@ const SingleServices = ({ ser }) => {
                 {serviceName}
               </h5>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 ">
-              {description.slice(0,60)}...
+              {description?.slice(0,60)}...
             </p>
           
             <button

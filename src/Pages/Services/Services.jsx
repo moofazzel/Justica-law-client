@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
-import SingleServices from "../../Pages/Services/SingleServices";
 
 const Services = () => {
   const [service, setService] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/data")
+    fetch("https://justica-law-server.vercel.app/data")
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);
@@ -57,12 +56,8 @@ const Services = () => {
                     {ser?.serviceName}
                   </h5>
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 ">
-                    {ser?.description.slice(0, 60)}...
+                    {ser?.description?.slice(0, 60)}...
                   </p>
-
-                  {/* <i className="icofont-worker font-icofont"></i> */}
-
-                  {/* <img src={worker} alt="" /> */}
 
                   <button
                     to={ser?._id}
