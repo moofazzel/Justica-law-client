@@ -32,9 +32,7 @@ const AddService = () => {
       .then((data) => {
         if (data.acknowledged) {
             toast.success('Successfully Added!')
-            
         }
-        <div></div>;
       });
   };
   return (
@@ -128,7 +126,7 @@ const AddService = () => {
               type="submit"
               className="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-[#eaa636] rounded-md shadow hover:bg-gray-800 focus:outline-none focus:ring-blue-200 focus:ring-4"
             >
-              Add
+             
             </button>
           </div>
         </form>
